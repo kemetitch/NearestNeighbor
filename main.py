@@ -7,6 +7,11 @@ import model
 import bz2
 app = FastAPI()
 
+if __name__ == "__main__":
+    config = uvicorn.Config("main:app",host="0.0.0.0" ,port=5000, log_level="info")
+    server = uvicorn.Server(config)
+    server.run()
+
 class item(BaseModel):
     name:str
     calories:int
